@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { Text, View, ScrollView, FlatList,
-    Modal, Button, StyleSheet, Alert, Share } from 'react-native';
+    Modal, Button, StyleSheet, Alert, Share, Linking } from 'react-native';
 import { Card, Icon, Rating, Input } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { baseUrl } from '../shared/baseUrl';
 import { postFavorite, postComment } from '../redux/ActionCreators';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 
 
 const mapStateToProps = state => {
@@ -42,6 +43,11 @@ function RenderSite(props) {
                 <Text style={{margin: 10}} >
                     {site.description} 
                 </Text>
+                <TouchableOpacity onPress={() => Linking.openURL(site.url)}>
+                    <Text style={styles.cardLink}>
+                        {site.name}
+                    </Text>
+                </TouchableOpacity>
                 <View style={styles.cardRow}>
                     <Icon 
                         name={props.favorite ? 'heart' : 'heart-o'}
@@ -222,6 +228,11 @@ const styles = StyleSheet.create({
     cardItem: {
         flex: 1,
         margin: 10
+    },
+    cardLink: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: 'blue'
     },
     modal: {
         justifyContent: 'center',

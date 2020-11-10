@@ -30,7 +30,7 @@ class Contact extends Component {
                     <Text h4> Email: virtualtour@tour.com </Text>
                     <Button
                             title="Send Email"
-                            buttonStyle={{backgroundColor: '#5637DD', margin: 40}}
+                            buttonStyle={{backgroundColor: '#AD9D9D', margin: 40}}
                             icon={<Icon
                                 name='envelope-o'
                                 type='font-awesome'

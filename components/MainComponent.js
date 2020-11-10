@@ -42,11 +42,11 @@ const DirectoryNavigator = createStackNavigator(
         initialRouteName: 'Directory',
         defaultNavigationOptions: {
             headerStyle: {
-                backgroundColor: '#5637DD'
+                backgroundColor: '#AD9D9D'
             },
-            headerTintColor: '#fff',
+            headerTintColor: '#121212',
             headerTitleStyle: {
-                color: '#fff'
+                color: '#121212'
             }
         }
     }
@@ -59,11 +59,11 @@ const FavoritesNavigator = createStackNavigator(
     {
         defaultNavigationOptions: ({navigation}) => ({
             headerStyle: {
-                backgroundColor: '#5637DD'
+                backgroundColor: '#AD9D9D'
             },
-            headerTintColor: '#fff',
+            headerTintColor: '#121212',
             headerTitleStyle: {
-                color: '#fff'
+                color: '#121212'
             },
             headerLeft: <Icon
                 name='heart'
@@ -82,11 +82,11 @@ const LoginNavigator = createStackNavigator(
     {
         defaultNavigationOptions: ({navigation}) => ({
             headerStyle: {
-                backgroundColor: '#5637DD'
+                backgroundColor: '#AD9D9D'
             },
-            headerTintColor: '#fff',
+            headerTintColor: '#121212',
             headerTitleStyle: {
-                color: '#fff'
+                color: '#121212'
             },
             headerLeft: <Icon
                 name='sign-in'
@@ -105,11 +105,11 @@ const HomeNavigator = createStackNavigator(
     {
         defaultNavigationOptions: ({navigation}) => ({
             headerStyle: {
-                backgroundColor: '#5637DD'
+                backgroundColor: '#AD9D9D'
             },
-            headerTintColor: '#fff',
+            headerTintColor: '#121212',
             headerTitleStyle: {
-                color: '#fff'
+                color: '#121212'
             },
             headerLeft: <Icon
                 name='home'
@@ -128,11 +128,11 @@ const AboutNavigator = createStackNavigator(
     {
         defaultNavigationOptions: ({navigation}) => ({
             headerStyle: {
-                backgroundColor: '#5637DD'
+                backgroundColor: '#AD9D9D'
             },
-            headerTintColor: '#fff',
+            headerTintColor: '#121212',
             headerTitleStyle: {
-                color: '#fff'
+                color: '#121212'
             },
             headerLeft: <Icon
                 name='info-circle'
@@ -151,11 +151,11 @@ const ContactNavigator = createStackNavigator(
     {
         defaultNavigationOptions: ({navigation}) => ({
             headerStyle: {
-                backgroundColor: '#5637DD'
+                backgroundColor: '#AD9D9D'
             },
-            headerTintColor: '#fff',
+            headerTintColor: '#121212',
             headerTitleStyle: {
-                color: '#fff'
+                color: '#121212'
             },
             headerLeft: <Icon
                 name='address-card'
@@ -271,7 +271,7 @@ const MainNavigator = createDrawerNavigator(
     },
     {
         initialRouteName: 'Home',
-        drawerBackgroundColor: '#CEC8FF',
+        drawerBackgroundColor: '#AD9D9D',
         contentComponent: CustomDrawerContentComponent
     }
 );
@@ -304,7 +304,7 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     drawerHeader: {
-        backgroundColor: '#5637DD',
+        backgroundColor: '#AD9D9D',
         height: 140,
         alignItems: 'center',
         justifyContent: 'center',
@@ -323,7 +323,7 @@ const styles = StyleSheet.create({
     },
     stackIcon: {
         marginLeft: 10,
-        color: '#fff',
+        color: '#121212',
         fontSize: 24
     }
 });
