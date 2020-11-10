@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import { Text, View, ScrollView, FlatList } from 'react-native';
 import { Card, Icon } from 'react-native-elements';
-import { SITES } from '../shared/sites';
-import { COMMENTS } from '../shared/comments';
+import { connect } from 'react-redux';
+import { baseUrl } from '../shared/baseUrl';
+
+const mapStateToProps = state => {
+    return {
+        sites: state.sites,
+        comments: state.comments
+    };
+};
 
 function RenderSite(props) {
     const {site} = props;
@@ -10,7 +17,7 @@ function RenderSite(props) {
         return (
             <Card
                 featuredTitle={site.name}
-                image={require('./images/britmuseum.jpg')}>
+                image={{uri: baseUrl + site.image}}>
                 <Text style={{margin: 10}}>
                     {site.description}
                 </Text>
@@ -58,8 +65,6 @@ class SiteInfo extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            sites: SITES, 
-            comments: COMMENTS, 
             favorite: false
         };
     }
@@ -74,8 +79,8 @@ class SiteInfo extends Component {
 
     render() {
         const siteId = this.props.navigation.getParam('siteId');
-        const site = this.state.sites.filter(site => site.id === siteId)[0];
-        const comments = this.state.comments.filter(comment => comment.siteId === siteId);
+        const site = this.props.sites.sites.filter(site => site.id === siteId)[0];
+        const comments = this.props.comments.comments.filter(comment => comment.siteId === siteId);
         return (
             <ScrollView>
                 <RenderSite site={site}
@@ -88,4 +93,4 @@ class SiteInfo extends Component {
     }
 }
 
-export default SiteInfo;
+export default connect(mapStateToProps)(SiteInfo);

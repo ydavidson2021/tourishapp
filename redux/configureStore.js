@@ -9,7 +9,7 @@ import { zoos } from './zoos';
 export const ConfigureStore = () => {
     const store = createStore(
         combineReducers({
-            campsites,
+            sites,
             comments,
             parks,
             zoos

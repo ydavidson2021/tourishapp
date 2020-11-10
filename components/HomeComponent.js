@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { Card } from 'react-native-elements';
-import { SITES } from '../shared/sites';
-import { ZOOS } from '../shared/zoos';
-import { PARKS } from '../shared/parks';
+import { connect } from 'react-redux';
+import { baseUrl } from '../shared/baseUrl';
 
+const mapStateToProps = state => {
+    return {
+        sites: state.sites,
+        zoos: state.zoos,
+        parks: state.parks
+    };
+};
 
 
 function RenderItem({item}) {
@@ -12,8 +18,7 @@ function RenderItem({item}) {
         return (
             <Card
                 featuredTitle={item.name}
-                image={require('./images/britmuseum.jpg')}
-            >
+                image={{uri: baseUrl + item.image}}>
                 <Text style={{margin: 10}}>
                     {item.description}
                 </Text>
@@ -24,16 +29,7 @@ function RenderItem({item}) {
 }
 
 class Home extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            sites: SITES, 
-            zoos: ZOOS, 
-            parks: PARKS
-        };
-    }
-
+    
     static navigationOptions = {
         title: 'Home'
     }
@@ -41,18 +37,18 @@ class Home extends Component {
     render() {
         return (
             <ScrollView>
-                <RenderItem 
-                    item={this.state.sites.filter(site => site.featured)[0]}
+                <RenderItem
+                    item={this.props.sites.sites.filter(site => site.featured)[0]}
                 />
-                <RenderItem 
-                    item={this.state.parks.filter(park => park.featured)[0]}
+                <RenderItem
+                    item={this.props.zoos.zoos.filter(zoo => zoo.featured)[0]}
                 />
-                <RenderItem 
-                    item={this.state.zoos.filter(zoo => zoo.featured)[0]}
+                <RenderItem
+                    item={this.props.parks.parks.filter(park => park.featured)[0]}
                 />
             </ScrollView>
         );
     }
 }
 
-export default Home;
+export default connect(mapStateToProps)(Home);
