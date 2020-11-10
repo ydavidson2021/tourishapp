@@ -2,7 +2,7 @@ import * as ActionTypes from './ActionTypes';
 
 export const zoos = (state = { isLoading: true,
                                         errMess: null,
-                                        promotions: []}, action) => {
+                                        zoos: []}, action) => {
     switch (action.type) {
         case ActionTypes.ADD_ZOOS:
             return {...state, isLoading: false, errMess: null, zoos: action.payload};

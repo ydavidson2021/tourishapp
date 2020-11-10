@@ -2,7 +2,7 @@ import * as ActionTypes from './ActionTypes';
 
 export const parks = (state = { isLoading: true,
                                     errMess: null,
-                                    partners: []}, action) => {
+                                    parks: []}, action) => {
     switch (action.type) {
         case ActionTypes.ADD_PARKS:
             return {...state, isLoading: false, errMess: null, parks: action.payload};
