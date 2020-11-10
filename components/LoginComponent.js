@@ -97,7 +97,7 @@ class LoginTab extends Component {
                                 iconStyle={{marginRight: 10}}
                             />
                         }
-                        buttonStyle={{backgroundColor: '#5637DD'}}
+                        buttonStyle={{backgroundColor: 'orange'}}
                     />
                 </View>
                 <View style={styles.formButton}>

@@ -61,7 +61,7 @@ function RenderSite(props) {
                     <Icon style={styles.cardItem}
                         name='pencil'
                         type='font-awesome'
-                        color='#5637DD'
+                        color='#AD9D9D'
                         raised
                         reverse
                         onPress={() => props.onShowModal()}                     
@@ -69,7 +69,7 @@ function RenderSite(props) {
                     <Icon
                         name={'share'}
                         type='font-awesome'
-                        color='#5637DD'
+                        color='#AD9D9D'
                         raised
                         reverse
                         onPress={() => shareSite(site.name, site.description, baseUrl + site.image)} 
@@ -195,7 +195,7 @@ class SiteInfo extends Component {
                                     this.handleComment(siteId);
                                     this.resetForm();
                                 }}
-                                color='#5637DD'
+                                color='orange'
                                 title='Submit'
                             />
                         </View>   
