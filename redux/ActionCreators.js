@@ -26,10 +26,30 @@ export const commentsFailed = errMess => ({
     payload: errMess
 });
 
-export const addComments = comments => ({
+export const addComments = (comments) => ({
     type: ActionTypes.ADD_COMMENTS,
     payload: comments
 });
+
+export const postComment = (siteId, rating, author, text) => dispatch =>  { 
+    
+    const newComment = {
+        siteId: siteId,  
+        rating: rating, 
+        author: author,  
+        text: text
+    };
+    newComment.date = new Date().toISOString();
+    setTimeout(() => {
+        dispatch(addComment(newComment));
+    }, 2000);
+};
+
+export const addComment = comment => ({
+    type: ActionTypes.ADD_COMMENT, 
+    payload: comment
+});
+
 
 export const fetchSites = () => dispatch => {
 
@@ -38,11 +58,11 @@ export const fetchSites = () => dispatch => {
     return fetch(baseUrl + 'sites')
         .then(response => {
                 if (response.ok) {
-                    return response;
+                return response;
                 } else {
                     const error = new Error(`Error ${response.status}: ${response.statusText}`);
                     error.response = response;
-                    throw error;
+                throw error;
                 }
             },
             error => {
@@ -100,7 +120,7 @@ export const zoosFailed = errMess => ({
     payload: errMess
 });
 
-export const addZoos= zoos => ({
+export const addZoos = zoos => ({
     type: ActionTypes.ADD_ZOOS,
     payload: zoos
 });
@@ -142,13 +162,13 @@ export const addParks = parks => ({
     payload: parks
 });
 
-export const postFavorite = campsiteId => dispatch => {
+export const postFavorite = siteId => dispatch => {
     setTimeout(() => {
-        dispatch(addFavorite(campsiteId));
+        dispatch(addFavorite(siteId));
     }, 2000);
 };
 
-export const addFavorite = campsiteId => ({
-    type: ActionTypes.ADD_FAVORITE,
-    payload: campsiteId
+export const addFavorite = siteId => ({
+    type: ActionTypes.ADD_FAVORITE, 
+    payload: siteId
 });

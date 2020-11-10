@@ -2,6 +2,7 @@ export const SITES_LOADING = 'SITES_LOADING';
 export const ADD_SITES = 'ADD_SITES';
 export const SITES_FAILED = 'SITES_FAILED';
 
+export const ADD_COMMENT = 'ADD_COMMENT';
 export const ADD_COMMENTS = 'ADD_COMMENTS';
 export const COMMENTS_FAILED = 'COMMENTS_FAILED';
 
