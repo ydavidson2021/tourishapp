@@ -93,7 +93,7 @@ class LoginTab extends Component {
                             <Icon
                                 name='sign-in'
                                 type='font-awesome'
-                                color='#fff'
+                                color='#121212'
                                 iconStyle={{marginRight: 10}}
                             />
                         }
@@ -133,7 +133,7 @@ class RegisterTab extends Component {
             lastname: '',
             email: '',
             remember: false,
-            imageUrl: baseUrl + 'images/logo.png'
+            imageUrl: baseUrl + './images/logo.png'
         };
     }
 
@@ -247,7 +247,7 @@ class RegisterTab extends Component {
                                 <Icon
                                     name='user-plus'
                                     type='font-awesome'
-                                    color='#fff'
+                                    color='#121212'
                                     iconStyle={{marginRight: 10}}
                                 />
                             }
@@ -267,8 +267,8 @@ const Login = createBottomTabNavigator(
     },
     {
         tabBarOptions: {
-            activeBackgroundColor: '#5637DD',
-            inactiveBackgroundColor: '#CEC8FF',
+            activeBackgroundColor: '#AD9D9D',
+            inactiveBackgroundColor: '#AD9D9D',
             activeTintColor: '#fff',
             inactiveTintColor: '#808080',
             labelStyle: {fontSize: 16}
