@@ -12,3 +12,5 @@ export const PARKS_FAILED = 'PARKS_FAILED';
 export const ZOOS_LOADING = 'ZOOS_LOADING';
 export const ADD_ZOOS = 'ADD_ZOOS';
 export const ZOOS_FAILED = 'ZOOS_FAILED';
+
+export const ADD_FAVORITE = 'ADD_FAVORITE';

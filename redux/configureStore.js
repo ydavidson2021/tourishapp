@@ -5,6 +5,7 @@ import { sites } from './sites';
 import { comments } from './comments';
 import { parks } from './parks';
 import { zoos } from './zoos';
+import { favorites } from './favorites';
 
 export const ConfigureStore = () => {
     const store = createStore(
@@ -12,7 +13,8 @@ export const ConfigureStore = () => {
             sites,
             comments,
             parks,
-            zoos
+            zoos, 
+            favorites
         }),
         applyMiddleware(thunk, logger)
     );

@@ -3,12 +3,18 @@ import { Text, View, ScrollView, FlatList } from 'react-native';
 import { Card, Icon } from 'react-native-elements';
 import { connect } from 'react-redux';
 import { baseUrl } from '../shared/baseUrl';
+import { postFavorite } from '../redux/ActionCreators';
 
 const mapStateToProps = state => {
     return {
         sites: state.sites,
-        comments: state.comments
+        comments: state.comments,
+        favorites: state.favorites
     };
+};
+
+const mapDispatchToProps = {
+    postFavorite: siteId => (postFavorite(siteId))
 };
 
 function RenderSite(props) {
@@ -61,16 +67,9 @@ function RenderComments({comments}) {
 
 
 class SiteInfo extends Component {
-    
-    constructor(props) {
-        super(props);
-        this.state = {
-            favorite: false
-        };
-    }
 
-    markFavorite() {
-        this.setState({favorite: true});
+    markFavorite(siteId) {
+        this.props.postFavorite(siteId);
     }
 
     static navigationOptions = {
@@ -84,8 +83,8 @@ class SiteInfo extends Component {
         return (
             <ScrollView>
                 <RenderSite site={site}
-                    favorite={this.state.favorite}
-                    markFavorite={() => this.markFavorite()}
+                    favorite={this.props.favorites.includes(siteId)}
+                    markFavorite={() => this.markFavorite(siteId)}
                 />
                 <RenderComments comments={comments} />
             </ScrollView>
@@ -93,4 +92,4 @@ class SiteInfo extends Component {
     }
 }
 
-export default connect(mapStateToProps)(SiteInfo);
+export default connect(mapStateToProps, mapDispatchToProps)(SiteInfo);
