@@ -6,18 +6,28 @@ import { comments } from './comments';
 import { parks } from './parks';
 import { zoos } from './zoos';
 import { favorites } from './favorites';
+import { persistStore, persistCombineReducers } from 'redux-persist';
+import storage from 'redux-persist/es/storage';
+
+const config = {
+    key: 'root',
+    storage,
+    debug: true
+}
 
 export const ConfigureStore = () => {
     const store = createStore(
-        combineReducers({
+        persistCombineReducers(config, {
             sites,
             comments,
+            zoos,
             parks,
-            zoos, 
             favorites
         }),
         applyMiddleware(thunk, logger)
     );
 
-    return store;
-}
+    const persistor = persistStore(store);
+
+    return { persistor, store };
+};
