@@ -43,6 +43,7 @@ function RenderSite(props) {
                 <Text style={{margin: 10}} >
                     {site.description} 
                 </Text>
+                <Text style={{textAlign:"center"}}> Click the link: </Text>
                 <TouchableOpacity onPress={() => Linking.openURL(site.url)}>
                     <Text style={styles.cardLink}>
                         {site.name}
@@ -230,6 +231,8 @@ const styles = StyleSheet.create({
         margin: 10
     },
     cardLink: {
+        textAlign: "center",
+        fontSize: 30,
         alignItems: 'center',
         justifyContent: 'center',
         color: 'blue'
